@@ -1,10 +1,15 @@
 package com.wizard.lair.model;
 
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 
 public class Book {
     @Id
@@ -83,11 +88,4 @@ public class Book {
         this.buyable = buyable;
     }
 
-    public boolean isFavorite() {
-        return favorite;
-    }
-
-    public void setFavorite(boolean favorite) {
-        this.favorite = favorite;
-    }
 }
