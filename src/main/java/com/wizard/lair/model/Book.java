@@ -21,10 +21,10 @@ public class Book {
     private String description;
     private String image;
     private String category;
-    private Integer price;
     private Integer reference;
+    private Integer price;
     private boolean buyable;
     private boolean favorite;
 
 
-
+}

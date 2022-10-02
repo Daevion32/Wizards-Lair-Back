@@ -6,10 +6,11 @@ import com.wizard.lair.repository.BookRepository;
 import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
-
+@CrossOrigin(origins="*")
 @Service
 @Builder
 public class BookService {
@@ -42,13 +43,15 @@ public class BookService {
         return bookRepository.save(book);
 
     }
-    public Book  create(BookRequest bookRequest){
+    public Book  post(BookRequest bookRequest){
         Book book = Book
                 .builder()
                 .name(bookRequest.getName())
-                .image(bookRequest.getImage())
                 .description(bookRequest.getDescription())
+                .image(bookRequest.getImage())
                 .category(bookRequest.getCategory())
+                .reference(bookRequest.getReference())
+                .price(bookRequest.getPrice())
                 .build();
         return bookRepository.save(book);
     }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Arrays;
 import java.util.List;
 
+@CrossOrigin(origins="*")
 @RestController
 @Builder
 @RequestMapping("/api/v1/book")
@@ -33,15 +34,15 @@ public class BookController {
 
         return ResponseEntity.ok().body(bookService.findByID(id));
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Long> deleteById(@PathVariable Long id){
 
         return ResponseEntity.ok().body(bookService.delete(id));
     }
-    @PostMapping("/createBook")
+    @PostMapping("")
     public ResponseEntity<?> create(@RequestBody BookRequest bookRequest){
 
-        return ResponseEntity.ok().body(bookService.create(bookRequest));
+        return ResponseEntity.ok().body(bookService.post(bookRequest));
     }
 
     @PutMapping("/{id}")
